@@ -55,6 +55,7 @@ ul li a{
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 8px;
     padding: 24px;
+    text-decoration: none;
 }
 
 #social-links{
