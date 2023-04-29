@@ -1,9 +1,27 @@
 *{
     font-family: "Inter", sans-serif;
-    color: white;
+    color: var(--text-color);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root{
+    --text-color: white;
+    --bg-url: url(./assets/mobile.jpg);
+    --stroke-color:  rgba(255, 255, 255, 0.5);
+    --surface-color:  rgba(255, 255, 255, 0.1);
+    --link-color-back: rgba(255, 255, 255, 0.2);
+    --switch-case: white url(./assets/handle.svg);
+}
+
+.light{
+    --text-color: black;
+    --bg-url: url(./assets/mobile-light.jpg);
+    --stroke-color:  rgba(0, 0, 0, 0.5);
+    --surface-color:  rgba(0, 0, 0, 0.05);
+    --link-color-back: rgba(65, 65, 65, 0.589);
+    --switch-case: black url(./assets/handle_dark.svg);
 }
 
 body{
@@ -15,14 +33,14 @@ body{
     */
 
     /*SHORT HAND*/
-    background: url(./assets/mobile.jpg) no-repeat top center/cover;
+    background: var(--bg-url) no-repeat top center/cover;
 }
 
 #container{
     width: 360px;
     margin:auto;
 }
-
+/* PROFILE */
 #profile{
     text-align: center;
     margin-top: 56px;
@@ -39,7 +57,45 @@ body{
     margin-top: 8px;
 }
 
+/* SWITCH */
+#switch{
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+
+#switch button{
+    width: 32px;
+    height: 32px;
+    background: var(--switch-case) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#switch span{
+    display: block;
+    border-radius: 9999px;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid  var(--stroke-color);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.light #switch button{
+    right: 0;
+    left: initial;
+}
+
+/* LINKS */
 ul{
+    padding: 24px;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -51,9 +107,9 @@ ul li a{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--surface-color);
     /* stroke-color-dark-mode */
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--stroke-color);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     /* Note: backdrop-filter has minimal browser support */
@@ -66,7 +122,7 @@ ul li a{
 
 ul li a:hover{
     background: rgba(255, 255, 255, 0.05);
-    border: 1.5px solid #FFFFFF;
+    border: 1.5px solid var(--text-color);
 }
 
 #social-links{
@@ -89,9 +145,11 @@ ul li a:hover{
 }
 
 #social-links a:hover{
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--link-color-back);
 }
 
 footer{
+    padding: 24px 0;
     text-align: center;
+    font-size: 14px;
 }
